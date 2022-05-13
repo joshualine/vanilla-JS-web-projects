@@ -42,7 +42,9 @@ function capitalizedLetter(str) {
 // 5. MAX CHARACTER
 function maxCharacter(str) {
   let splitString = str.split('');
-  let counter = {};
+  const counter = {};
+  let maxNum = 0;
+  let maxChar = '';
 
   splitString.forEach((char) => {
     if (counter[char]) {
@@ -51,10 +53,33 @@ function maxCharacter(str) {
       counter[char] = 1;
     }
   })
-  console.log(counter);
+  
+  
+  for(let char in counter) {
+    if(counter[char] > maxNum) {
+      maxNum = counter[char];
+      maxChar = char
+    }
+  }
+  return maxChar
 }
 
 // 6. FIZZBUZZ
+function fizzBuzz(number) {
+  if (number <= 100) {
+    if (number % 3 && number % 5) {
+      console.log('fizzBuzz')
+    } else if( number % 3) {
+      console.log('Fizz');
+    } else if (number % 5) {
+      console.log('Buzz')
+    }
+  } else {
+    console.log('select a number within then range of 1 to 100')
+  }
+  return;
+}
 
 // console.log(reverseString("hello"));
-console.log(maxCharacter('javascript'))
+// console.log(maxCharacter('javascriptttt'))
+console.log(fizzBuzz(20))
